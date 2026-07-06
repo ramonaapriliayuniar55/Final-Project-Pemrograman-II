@@ -1,0 +1,268 @@
+<x-app-layout>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
+
+                {{-- Breadcrumb Navigation --}}
+                <div class="row">
+                    <div class="col-12 mb-3">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                                <li class="breadcrumb-item active">{{ $anggota->nama }}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="row">
+                    {{-- Detail Card Anggota --}}
+                    <div class="col-md-8 mb-4">
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h4 class="mb-0">
+                                    <i class="bi bi-person"></i>
+                                    Detail Anggota
+                                </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center mb-4">
+                                    @if ($anggota->jenis_kelamin == 'Laki-laki')
+                                        <i class="bi bi-person-circle text-primary" style="font-size: 5rem;"></i>
+                                    @else
+                                        <i class="bi bi-person-circle text-danger" style="font-size: 5rem;"></i>
+                                    @endif
+                                    <h3 class="mt-2">{{ $anggota->nama }}</h3>
+                                    @if ($anggota->status == 'Aktif')
+                                        <span class="badge bg-success">
+                                            <i class="bi bi-check-circle"></i> Anggota Aktif
+                                        </span>
+                                    @else
+                                        <span class="badge bg-secondary">
+                                            <i class="bi bi-x-circle"></i> Nonaktif
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <td width="200" class="fw-bold">
+                                            <i class="bi bi-upc text-success"></i> Kode Anggota
+                                        </td>
+                                        <td>: <code>{{ $anggota->kode_anggota }}</code></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">
+                                            <i class="bi bi-envelope text-success"></i> Email
+                                        </td>
+                                        <td>: {{ $anggota->email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">
+                                            <i class="bi bi-telephone text-success"></i> Telepon
+                                        </td>
+                                        <td>: {{ $anggota->telepon }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">
+                                            <i class="bi bi-geo-alt text-success"></i> Alamat
+                                        </td>
+                                        <td>: {{ $anggota->alamat }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">
+                                            <i class="bi bi-calendar text-success"></i> Tanggal Lahir
+                                        </td>
+                                        <td>: {{ $anggota->tanggal_lahir?->format('d F Y') }} ({{ $anggota->umur }} tahun)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">
+                                            <i class="bi bi-gender-ambiguous text-success"></i> Jenis Kelamin
+                                        </td>
+                                        <td>: {{ $anggota->jenis_kelamin }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">
+                                            <i class="bi bi-briefcase text-success"></i> Pekerjaan
+                                        </td>
+                                        <td>: {{ $anggota->pekerjaan ?? '-' }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">
+                                            <i class="bi bi-calendar-check text-success"></i> Tanggal Daftar
+                                        </td>
+                                        <td>: {{ $anggota->tanggal_daftar?->format('d F Y') }} ({{ $anggota->lama_anggota }} hari)</td>
+                                    </tr>
+                                </table>
+
+                                <hr>
+                                <div class="row text-muted small">
+                                    <div class="col-md-6 mb-2 mb-md-0">
+                                        <i class="bi bi-clock"></i>
+                                        Ditambahkan: {{ $anggota->created_at?->format('d M Y H:i') }}
+                                    </div>
+                                    <div class="col-md-6 text-md-end">
+                                        <i class="bi bi-clock-history"></i>
+                                        Terakhir Update: {{ $anggota->updated_at?->format('d M Y H:i') }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {{-- Sidebar Menu Aksi --}}
+                    <div class="col-md-4">
+                        <div class="card mb-3">
+                            <div class="card-header bg-secondary text-white">
+                                <h6 class="mb-0">
+                                    <i class="bi bi-gear"></i> Aksi
+                                </h6>
+                            </div>
+                            <div class="card-body d-grid gap-2">
+                                <a href="{{ route('anggota.edit', $anggota->id) }}" class="btn btn-warning text-dark fw-bold">
+                                    <i class="bi bi-pencil"></i> Edit Anggota
+                                </a>
+                                <a href="{{ route('anggota.index') }}" class="btn btn-outline-success">
+                                    <i class="bi bi-arrow-left"></i> Kembali
+                                </a>
+                                <hr>
+                                <form action="{{ route('anggota.destroy', $anggota->id) }}"
+                                method="POST"
+                                class="form-hapus"
+                                data-nama="{{ $anggota->nama }}">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="btn btn-danger w-100">
+                                    <i class="bi bi-trash"></i> Hapus Anggota
+                                </button>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- RIWAYAT PEMINJAMAN --}}
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0">
+                                    <i class="bi bi-clock-history"></i> Riwayat Peminjaman
+                                </h5>
+                            </div>
+                            <div class="card-body">
+
+                                {{-- Statistik Ringkas --}}
+                                <div class="row g-2 mb-3">
+                                    <div class="col-md-3 col-6">
+                                        <div class="card border-primary text-center">
+                                            <div class="card-body py-2 px-2">
+                                                <div class="text-muted small">Total Pinjam</div>
+                                                <div class="fs-5 fw-bold">{{ $statistikPeminjaman['total_pinjam'] }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="card border-warning text-center">
+                                            <div class="card-body py-2 px-2">
+                                                <div class="text-muted small">Sedang Dipinjam</div>
+                                                <div class="fs-5 fw-bold">{{ $statistikPeminjaman['sedang_dipinjam'] }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="card border-success text-center">
+                                            <div class="card-body py-2 px-2">
+                                                <div class="text-muted small">Sudah Dikembalikan</div>
+                                                <div class="fs-5 fw-bold">{{ $statistikPeminjaman['sudah_dikembalikan'] }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <div class="card border-danger text-center">
+                                            <div class="card-body py-2 px-2">
+                                                <div class="text-muted small">Total Denda</div>
+                                                <div class="fs-6 fw-bold">Rp {{ number_format($statistikPeminjaman['total_denda'], 0, ',', '.') }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- Filter Status --}}
+                                <form method="GET" action="{{ route('anggota.show', $anggota->id) }}" class="row g-2 mb-4">
+                                    <div class="col-md-3">
+                                        <select name="status" class="form-select" onchange="this.form.submit()">
+                                            <option value="Semua" {{ !request('status') || request('status') == 'Semua' ? 'selected' : '' }}>Semua Status</option>
+                                            <option value="Dipinjam" {{ request('status') == 'Dipinjam' ? 'selected' : '' }}>Dipinjam</option>
+                                            <option value="Dikembalikan" {{ request('status') == 'Dikembalikan' ? 'selected' : '' }}>Dikembalikan</option>
+                                        </select>
+                                    </div>
+                                </form>
+
+                                {{-- Timeline Riwayat --}}
+                                @forelse($riwayatTransaksi as $trx)
+                                <div class="d-flex mb-3 pb-3 {{ !$loop->last ? 'border-bottom' : '' }}">
+                                    <div class="me-3">
+                                        @if($trx->status == 'Dipinjam')
+                                            <span class="badge bg-warning rounded-circle p-2"><i class="bi bi-journal-arrow-up"></i></span>
+                                        @else
+                                            <span class="badge bg-success rounded-circle p-2"><i class="bi bi-check-lg"></i></span>
+                                        @endif
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex justify-content-between">
+                                            <h6 class="mb-1">{{ $trx->buku->judul }}</h6>
+                                            <span class="badge bg-{{ $trx->status == 'Dipinjam' ? 'warning' : 'success' }}">
+                                                {{ $trx->status }}
+                                            </span>
+                                        </div>
+                                        <div class="text-muted small">
+                                            <code>{{ $trx->kode_transaksi }}</code>
+                                            &bull; Pinjam: {{ $trx->tanggal_pinjam->format('d M Y') }}
+                                            &bull; Kembali: {{ $trx->tanggal_kembali->format('d M Y') }}
+                                            @if($trx->denda > 0)
+                                                &bull; <span class="text-danger">Denda: Rp {{ number_format($trx->denda, 0, ',', '.') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                @empty
+                                <p class="text-muted text-center mb-0">Belum ada riwayat peminjaman.</p>
+                                @endforelse
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@push('scripts')
+<script>
+document.querySelector('.form-hapus')?.addEventListener('submit', function(e){
+
+    e.preventDefault();
+
+    Swal.fire({
+        title: 'Hapus Anggota?',
+        html: `Apakah Anda yakin ingin menghapus anggota <b>${this.dataset.nama}</b>?`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Ya, Hapus',
+        cancelButtonText: 'Batal',
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d'
+    }).then((result)=>{
+
+        if(result.isConfirmed){
+            this.submit();
+        }
+
+    });
+
+});
+</script>
+@endpush
+</x-app-layout>
