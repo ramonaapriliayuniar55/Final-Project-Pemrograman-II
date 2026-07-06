@@ -40,7 +40,7 @@ Proses logout untuk mengakhiri sesi login user.
 
 ## Middleware Protection
 
-Jika belum login, middleware akan menolak akses ke halaman terproteksi dan secara otomatis mengalihkan (redirect) user kembali ke halaman login.
+Jika user belum login, middleware akan menolak akses ke halaman terproteksi dan secara otomatis mengalihkan (redirect) user kembali ke halaman login.
 
 ### Screenshot
 
@@ -52,7 +52,7 @@ Jika belum login, middleware akan menolak akses ke halaman terproteksi dan secar
 
 ## Create Buku
 
-Form untuk menambahkan data buku baru.
+Form untuk menambahkan data buku baru. 
 
 ### Screenshot
 
@@ -145,7 +145,7 @@ Penanganan format tanggal (tanggal lahir, tanggal bergabung, dll).
 
 ### Screenshot
 
-![](./screenshots/datehandling.png)
+![](./screenshots/datehandling.png) 
 
 ## Email & Phone Validation
 
