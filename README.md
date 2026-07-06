@@ -1,4 +1,4 @@
-# 📚 Project Final - Sistem Perpustakaan
+# Project Final - Sistem Perpustakaan
 
 **Nama:** Ramona Aprilia Yuniar
 **NIM:** 60324039
@@ -96,7 +96,12 @@ Pencarian buku berdasarkan judul/penulis, serta filter berdasarkan kategori/kete
 
 ### Screenshot
 
+Search Data :
 ![](./screenshots/searchfilterbuku.png)
+
+Hasil Search Data :
+![](./screenshots/hasilseacrbuku.png)
+
 
 ---
 
@@ -168,15 +173,12 @@ Stok buku otomatis berkurang saat buku dipinjam.
 
 ### Screenshot
 
+Awal Stok
+![](./screenshots/awalstok.png)
+
+Auto -1
 ![](./screenshots/autoupdatestokminus.png)
 
-## Generate Kode Transaksi
-
-Kode transaksi dibuat otomatis dan unik setiap peminjaman.
-
-### Screenshot
-
-![](./screenshots/generatekodetransaksi.png)
 
 ## Tanggal Kembali Auto (+7 Hari)
 
@@ -204,7 +206,11 @@ Status transaksi berubah dari "Dipinjam" menjadi "Dikembalikan".
 
 ### Screenshot
 
-![](./screenshots/updatestatuspengembalian.png)
+Dipinjam
+![](./screenshots/dipinjam.png)
+
+Dikembalikan
+![](./screenshots/dikembalikann.png)
 
 ## Perhitungan Denda (Rp 5.000/hari)
 
@@ -220,7 +226,11 @@ Stok buku otomatis bertambah saat buku dikembalikan.
 
 ### Screenshot
 
-![](./screenshots/autoupdatestokplus.png)
+Stok Saat Dipinjam
+![](./screenshots/saatdipinjam.png)
+
+Stok Setelah Dikembalikan
+![](./screenshots/stlhdikembalikan.png)
 
 ---
 
@@ -232,7 +242,7 @@ Minimal 6 statistik ringkas ditampilkan di dashboard (total buku, total anggota,
 
 ### Screenshot
 
-![](./screenshots/dashboardstatistics.png)
+![](./screenshots/dashboardstatistics.jpeg)
 
 ## Charts (Line + Pie/Bar)
 
@@ -241,22 +251,6 @@ Grafik tren peminjaman (line chart) dan grafik kategori/status (pie/bar chart).
 ### Screenshot
 
 ![](./screenshots/dashboardcharts.png)
-
-## Recent Data Tables
-
-Tabel data transaksi/aktivitas terbaru.
-
-### Screenshot
-
-![](./screenshots/recentdatatables.png)
-
-## Quick Actions
-
-Tombol akses cepat ke fitur-fitur utama.
-
-### Screenshot
-
-![](./screenshots/quickactions.png)
 
 ---
 
@@ -290,7 +284,7 @@ Kata kunci pencarian ditandai (highlight) pada hasil.
 
 ### 8. Laporan Transaksi
 
-## Filter (Date, Status, Anggota)
+## Filter (Date, Status, Anggota) dan Ringkasan Statistik
 
 Laporan dapat difilter berdasarkan rentang tanggal, status transaksi, dan anggota.
 
@@ -298,13 +292,6 @@ Laporan dapat difilter berdasarkan rentang tanggal, status transaksi, dan anggot
 
 ![](./screenshots/filterlaporan.png)
 
-## Statistics Summary
-
-Ringkasan statistik ditampilkan di atas tabel laporan.
-
-### Screenshot
-
-![](./screenshots/statisticssummary.png)
 
 ## Print-Friendly
 
@@ -338,15 +325,11 @@ Badge "Terlambat X hari" ditampilkan pada baris transaksi yang terlambat di hala
 
 ---
 
-### 10. Kategori Buku Management
-
-## Kategori Buku
-
-CRUD kategori buku, relasi kategori dengan buku, serta dropdown & filter kategori pada form dan daftar buku.
+### 10. Dashboard Charts Advanced
+Pie chart kategori buku, Bar chart top 10 buku terpopuler, Line chart trend peminjaman, Donut chart status transaksi
 
 ### Screenshot
-
-![](./screenshots/kategoribuku.png)
+![](./screenshots/dashboardcharts.png)
 
 ---
 
@@ -360,9 +343,30 @@ Menampilkan seluruh riwayat peminjaman buku pada halaman detail anggota, termasu
 
 ![](./screenshots/riwayatpeminjaman.png)
 
+### 12. Export Data
+Export buku ke Excel, Export anggota ke Excel, Export laporan transaksi ke PDF
+
+### Screenshot
+
+Export Buku
+![](./screenshots/exportbuku.png)
+
+Export Anggota
+![](./screenshots/exportanggota.png)
+
+Export Laporan 
+![](./screenshots/exportpdf.png)
+
+
+### 13. Responsive Design
+
+### Screenshot
+
+![](./screenshots/responsive.png)
+
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend:** Laravel (PHP)
 - **Frontend:** Blade, Bootstrap / Tailwind CSS
@@ -370,7 +374,7 @@ Menampilkan seluruh riwayat peminjaman buku pada halaman detail anggota, termasu
 
 ---
 
-## ⚙️ Instalasi
+## Instalasi
 
 ```bash
 git clone https://github.com/ramonaapriliayuniar55/Final-Project-Pemrograman-II.git
