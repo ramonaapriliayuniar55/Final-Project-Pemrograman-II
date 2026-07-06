@@ -348,13 +348,13 @@ Export buku ke Excel, Export anggota ke Excel, Export laporan transaksi ke PDF
 
 ### Screenshot
 
-Export Buku
+Export Buku :
 ![](./screenshots/exportbuku.png)
 
-Export Anggota
+Export Anggota :
 ![](./screenshots/exportanggota.png)
 
-Export Laporan 
+Export Laporan :
 ![](./screenshots/exportpdf.png)
 
 
