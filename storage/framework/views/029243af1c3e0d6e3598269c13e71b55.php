@@ -127,7 +127,7 @@
                                         <i class="bi bi-search"></i> Cari
                                     </button>
                                     <a href="<?php echo e(route('anggota.index')); ?>" class="btn btn-secondary w-100">
-                                        <i class="bi bi-x"></i> Reset
+                                        <i class="bi bi-x-circle"></i> Reset
                                     </a>
                                 </div>
                             </div>
