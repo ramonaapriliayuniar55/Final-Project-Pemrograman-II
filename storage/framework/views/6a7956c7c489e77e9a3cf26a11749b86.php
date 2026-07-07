@@ -194,7 +194,7 @@
             const submitBtn = this.querySelector('button[type="submit"]');
             if (submitBtn && !this.classList.contains('delete-form')) {
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Menyimpan...';
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>';
             }
         });
     });
