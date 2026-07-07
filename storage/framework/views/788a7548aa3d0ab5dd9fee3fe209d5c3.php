@@ -40,7 +40,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
                                            value="<?php echo e(old('kode_buku')); ?>"
-                                           placeholder="Contoh: BK-001">
+                                           placeholder="Contoh: BK-PROG-001">
                                     <?php $__errorArgs = ['kode_buku'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
